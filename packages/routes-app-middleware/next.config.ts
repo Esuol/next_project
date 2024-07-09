@@ -5,7 +5,7 @@ module.exports = {
     return [
       {
         source: 'blog/berlin',
-        destination: '/blog/yayu_redirects',
+        destination: '/blog/berlin_redirects',
         permanent: true,
       },
     ];
