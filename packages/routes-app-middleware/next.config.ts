@@ -1,6 +1,7 @@
 import { redirect } from 'next/dist/server/api-utils';
 
 module.exports = {
+  skipTrailingSlashRedirect: true,
   async redirects() {
     return [
       {
