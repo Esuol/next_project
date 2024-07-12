@@ -1,3 +1,5 @@
+import { cache } from 'react';
+
 export const revalidate = 0;
 export const fetchCache = 'force-cache';
 
