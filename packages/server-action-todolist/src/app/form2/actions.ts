@@ -14,3 +14,9 @@ export async function createToDo(formData: FormData) {
   revalidatePath('/form2');
   return data;
 }
+
+export async function createToDoDirectly(value: string) {
+  const form = new FormData();
+  form.append('todo', value);
+  return createToDo(form);
+}
