@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import { Suspense } from 'react';
+import { NavigationEvents } from './nabigation-events';
 
 export const dynamic = 'force-dynamic';
 
@@ -10,6 +12,9 @@ export default function CacheLayout(props: { children: React.ReactNode }) {
         <Link href="/settings">Settings</Link>
       </nav>
       {props.children}
+      <Suspense fallback={null}>
+        <NavigationEvents />
+      </Suspense>
     </section>
   );
 }
