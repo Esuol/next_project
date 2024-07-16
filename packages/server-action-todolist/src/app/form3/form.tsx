@@ -2,6 +2,7 @@
 
 import { useFormState, useFormStatus } from 'react-dom';
 import { createToDo } from './actions';
+import './style.css';
 
 const initialState = {
   message: 'initial message',
@@ -24,7 +25,7 @@ export default function AddToDoForm() {
     <form action={formAction}>
       <input type="text" name="todo" style={{ color: 'black' }} />
       <SubmitButton />
-      <p aria-live="polite" style={{ color: 'white' }}>
+      <p aria-live="polite" className="sr-only">
         {state?.message}
       </p>
     </form>
