@@ -1,6 +1,7 @@
 // next.config.mjs
 import remarkGfm from 'remark-gfm'
 import createMDX from '@next/mdx'
+import remarkMdxImages from "remark-mdx-images";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -10,7 +11,7 @@ const nextConfig = {
 const withMDX = createMDX({
   // 添加 markdown 插件
   options: {
-    remarkPlugins: [remarkGfm],
+    remarkPlugins: [remarkGfm, remarkMdxImages],
     rehypePlugins: [],
   },
 })
