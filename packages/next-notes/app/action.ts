@@ -3,8 +3,9 @@
 import { redirect } from 'next/navigation';
 import { addNote, updateNote, delNote } from '@/lib/redis';
 import { revalidatePath } from 'next/cache';
+const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
-export async function saveNote(formData: FormData) {
+export async function saveNote(prevState: any, formData: FormData) {
   const noteId = formData.get('noteId');
 
   const data = JSON.stringify({
@@ -13,21 +14,22 @@ export async function saveNote(formData: FormData) {
     updateTime: new Date(),
   });
 
+  // 为了让效果更明显
+  await sleep(2000);
+
   if (noteId) {
-    console.log('Updating note', noteId, data);
     updateNote(noteId as string, data);
     revalidatePath('/', 'layout');
-    redirect(`/note/${noteId}`);
   } else {
     const res = await addNote(data);
-    // Revalidate the home page to update the sidebar
     revalidatePath('/', 'layout');
-    redirect(`/note/${res}`);
   }
+  return { message: `Add Success!` };
 }
 
-export async function deleteNote(noteId: string) {
-  delNote(noteId);
+export async function deleteNote(prevState: any, formData: FormData) {
+  const noteId = formData.get('noteId');
+  delNote(noteId! as string);
   revalidatePath('/', 'layout');
   redirect('/');
 }
