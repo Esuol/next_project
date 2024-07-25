@@ -28,7 +28,7 @@ export default async function Sidebar() {
         </section>
         <nav>
           <Suspense fallback={<NoteListSkeleton />}>
-            <SidebarNoteList notes={notes} />
+            <SidebarNoteList />
           </Suspense>
         </nav>
       </section>
