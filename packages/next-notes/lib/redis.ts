@@ -31,7 +31,7 @@ export async function addNote(data: string) {
   return uuid;
 }
 
-export async function updateNote(uuid: number, data: string) {
+export async function updateNote(uuid: number | string, data: string) {
   await redis.hset('notes', uuid, data);
 }
 
