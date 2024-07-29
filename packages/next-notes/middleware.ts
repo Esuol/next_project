@@ -7,6 +7,7 @@ function getLocale(request: NextRequest) {
   const headers = {
     'accept-language': request.headers.get('accept-language') || '',
   };
+
   // 这里不能直接传入 request，有更简单的写法欢迎评论留言
   const languages = new Negotiator({ headers }).languages();
 
