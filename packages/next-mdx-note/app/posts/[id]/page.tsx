@@ -2,6 +2,7 @@ import { compileMDX } from 'next-mdx-remote/rsc';
 import { readFile } from 'node:fs/promises';
 import path from 'path';
 
+// @ts-ignore
 async function getMDXContent(name) {
   try {
     const filePath = path.join(process.cwd(), '/posts/', `${name}.mdx`);
