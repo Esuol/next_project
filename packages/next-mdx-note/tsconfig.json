@@ -17,10 +17,12 @@
         "name": "next"
       }
     ],
+    "baseUrl": ".",
     "paths": {
       "contentlayer/generated": ["./.contentlayer/generated"],
       "@/*": ["./app/*"],
-      "@/data/*": ["data/*"]
+      "@/data/*": ["data/*"],
+      "@/components/*": ["components/*"]
     }
   },
   "include": [

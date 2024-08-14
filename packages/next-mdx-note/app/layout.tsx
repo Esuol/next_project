@@ -1,5 +1,7 @@
 import siteMetadata from '@/data/siteMetadata';
-import './globals.css';
+import ThemeSwitch from '@/components/ThemeSwitch';
+import { ThemeProviders } from './theme-providers';
+import './global.css';
 
 export const metadata = {
   metadataBase: new URL(siteMetadata.siteUrl),
@@ -44,8 +46,15 @@ export const metadata = {
 // @ts-ignore
 export default function RootLayout({ children }) {
   return (
-    <html lang={siteMetadata.locale}>
-      <body>{children}</body>
+    <html lang={siteMetadata.locale} suppressHydrationWarning>
+      <body>
+        <ThemeProviders>
+          <header className="flex justify-end">
+            <ThemeSwitch />
+          </header>
+          {children}
+        </ThemeProviders>
+      </body>
     </html>
   );
 }
