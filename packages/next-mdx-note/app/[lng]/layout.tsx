@@ -1,6 +1,7 @@
 import siteMetadata from '@/data/siteMetadata';
 import { dir } from 'i18next';
 import ThemeSwitch from '@/components/ThemeSwitch';
+import LangSwitch from '@/components/LangSwitch';
 import { ThemeProviders } from './theme-providers';
 import './global.css';
 
@@ -62,6 +63,7 @@ export default function RootLayout(props: {
         <ThemeProviders>
           <header className="flex justify-end">
             <ThemeSwitch />
+            <LangSwitch />
           </header>
           {children}
         </ThemeProviders>
