@@ -5,12 +5,12 @@ import { allPosts } from 'contentlayer/generated';
 import dayjs from 'dayjs';
 
 // @ts-ignore
-function PostCard(post) {
+function PostCard({ lng, ...post }) {
   return (
     <div className="mb-8">
       <h2 className="mb-1 text-xl">
         <Link
-          href={post.url}
+          href={`/${lng}${post.url}`}
           className="text-blue-700 hover:text-blue-900 dark:text-blue-400"
         >
           {post.title}
@@ -23,12 +23,14 @@ function PostCard(post) {
   );
 }
 
-export default function Home() {
+// @ts-ignore
+export default function Home(parms: { params: { lng: string } }) {
+  const { lng } = parms.params;
   return (
     <div className="mx-auto max-w-xl py-8">
       <h1 className="mb-8 text-center text-2xl font-black">My Blog List</h1>
       {allPosts.map((post, idx) => (
-        <PostCard key={idx} {...post} />
+        <PostCard key={idx} lng={lng} {...post} />
       ))}
     </div>
   );
