@@ -1,0 +1,28 @@
+// 静态变量
+$prefixCls: t-web-components;
+$prefixFieldCls: $prefixCls + '-field';
+$prefixTooltipCls: $prefixCls + '-tooltip';
+
+$default-primary-rgb: 0, 115, 255; // #0073ff
+$default-primary-color: #0073ff;
+
+$default-neutral-rgb: 5, 18, 51; // #051233
+$default-neutral-color: #051233;
+
+$default-auxiliary-rgb: 255, 170, 172; // #ffaaac
+$default-auxiliary-color: #ffaaac;
+
+// 默认主题
+:root {
+  // 主题色
+  --web-primary-rgb: #{$default-primary-rgb};
+  --web-primary-color: rgb(
+    var(--web-primary-rgb)
+  ); // --web-primary-color: #{$default-primary-color};
+}
+
+// 动态变量
+// hover
+// 主题色
+$primary-rgb: var(--web-primary-rgb);
+$primary-color: var(--web-primary-color);
