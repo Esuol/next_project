@@ -9,6 +9,7 @@ export async function generateStaticParams() {
     id: post._raw.flattenedPath,
   }));
 }
+
 // @ts-ignore
 export const generateMetadata = ({ params }) => {
   const post = allPosts.find((post) => post._raw.flattenedPath === params.id);

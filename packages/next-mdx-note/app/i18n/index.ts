@@ -29,7 +29,7 @@ const initI18next = async (lng = fallbackLanguage, ns = 'basic') => {
 
 export async function useTranslation(
   lng: string,
-  ns: string,
+  ns?: string,
   options: Record<string, any> = {}
 ) {
   const i18nextInstance = await initI18next(lng, ns);

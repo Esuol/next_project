@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { allPosts } from 'contentlayer/generated';
 import dayjs from 'dayjs';
+import { useTranslation } from '@/i18n/index';
 
 // @ts-ignore
 function PostCard({ lng, ...post }) {
@@ -24,13 +25,14 @@ function PostCard({ lng, ...post }) {
 }
 
 // @ts-ignore
-export default function Home(parms: { params: { lng: string } }) {
+export default async function Home(parms: { params: { lng: string } }) {
   const { lng } = parms.params;
+  const { t } = await useTranslation(lng);
   return (
     <div className="mx-auto max-w-xl py-8">
-      <h1 className="mb-8 text-center text-2xl font-black">My Blog List</h1>
+      <h1 className="mb-8 text-center text-2xl font-black">{t('blogList')}</h1>
       {allPosts.map((post, idx) => (
-        <PostCard key={idx} lng={lng} {...post} />
+        <PostCard key={idx} {...post} lng={lng} />
       ))}
     </div>
   );
