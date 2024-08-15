@@ -1,9 +1,8 @@
-'use client';
-
 import Link from 'next/link';
 import { allPosts } from 'contentlayer/generated';
 import dayjs from 'dayjs';
 import { useTranslation } from '@/i18n/index';
+import Like from '@/[lng]/posts/like';
 
 // @ts-ignore
 function PostCard({ lng, ...post }) {
@@ -20,6 +19,7 @@ function PostCard({ lng, ...post }) {
       <time dateTime={post.date} className="mb-2 block text-xs text-gray-600">
         {dayjs(post.date).format('DD/MM/YYYY')}
       </time>
+      <Like lng={lng} />
     </div>
   );
 }
