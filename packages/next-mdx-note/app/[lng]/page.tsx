@@ -4,6 +4,19 @@ import dayjs from 'dayjs';
 import { useTranslation } from '@/i18n/index';
 import Like from '@/[lng]/posts/like';
 
+export const generateMetadata = async (props: { params: { lng: string } }) => {
+  const { lng } = props.params;
+  const { t } = await useTranslation(lng, 'posts');
+  return {
+    title: t('title'),
+    description: t('description'),
+    openGraph: {
+      title: '博客列表',
+      description: '这是博客列表页面',
+    },
+  };
+};
+
 // @ts-ignore
 function PostCard({ lng, ...post }) {
   return (
