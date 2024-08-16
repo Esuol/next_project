@@ -2,6 +2,7 @@ import siteMetadata from '@/data/siteMetadata';
 import { dir } from 'i18next';
 import ThemeSwitch from '@/components/ThemeSwitch';
 import LangSwitch from '@/components/LangSwitch';
+import { WebVitals } from '@/components/WebVitals';
 import { ThemeProviders } from './theme-providers';
 import './global.css';
 
@@ -60,6 +61,8 @@ export default function RootLayout(props: {
   return (
     <html lang={lng} dir={dir(lng)} suppressHydrationWarning>
       <body>
+        {/* @ts-ignore */}
+        <WebVitals />
         <ThemeProviders>
           <header className="flex justify-end">
             <ThemeSwitch />
